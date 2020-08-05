@@ -11,3 +11,318 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* external font */
+@font-face {
+  font-family: "cereal app";
+  src: url(/font/AirbnbCerealMedium.woff);
+}
+
+.container-css {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+}
+
+.header {
+  min-width: 50px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  text-align: center;
+  padding: 5px;
+  font-family: "cereal app";
+  font-size: 23px;
+  line-height: 39px;
+}
+.header a{
+  text-decoration: none;
+  color: black;
+}
+.chart {
+  font-family: "cereal app";
+  font-size: 23px;
+  line-height: 33px;
+  padding-top: 5px;
+  overflow: hidden;
+  border-bottom: 1px solid rgb(231, 230, 229);
+}
+
+.chart span {
+  background-color: rgb(41, 140, 233);
+  border-radius: 50px 50px 50px 50px;
+  color: white;
+  padding: 3px;
+}
+
+.left-bar {
+  height: 93.1vh;
+  min-width: 50px;
+  flex: 0.2;
+  display: flex;
+  background-color: rgb(255, 255, 255);
+  padding-right: 5px;
+  overflow: hidden;
+  justify-content: center;
+}
+
+.left-bar img {
+  width: 30px;
+  height: 30px;
+  justify-content: center;
+  margin: 8px auto;
+}
+
+main {
+  overflow: scroll;
+  height: 93.3vh;
+  background-color: rgba(190, 195, 202, 0.3);
+  flex: 3.8;
+  padding: 17px;
+  justify-content: space-around;
+}
+main div {
+  padding-bottom: 10px;
+}
+
+main .card {
+  border: none;
+}
+
+main .card p {
+  font-family: "cereal app";
+  font-size: 25px;
+  line-height: 33px;
+}
+main .card img {
+  border-radius: 10px 10px 0 0;
+}
+
+/* table */
+.table {
+  font-family: "cereal app";
+  font-size: 23px;
+}
+table tr {
+  text-align: left;
+}
+table .right {
+  text-align: end;
+}
+table span {
+  font-size: 17px;
+}
+
+.modal-body {
+  border-bottom: 0 none;
+}
+.p-footer {
+  text-align: center;
+  font-family: "cereal app";
+  font-size: 23px;
+}
+
+.modal-footer {
+  border-top: 0 none;
+  text-align: center;
+}
+.modal-footer button {
+  width: 400px;
+  margin: 0 auto;
+  height: 60px;
+  background-color: #f24f8a;
+  border-radius: 10px;
+  font-family: "cereal app";
+  font-size: 23px;
+  color: #ffff;
+  margin-top: -10px;
+  margin-bottom: -4px;
+}
+.card .image-card{
+    position: relative;
+}
+.card .image-card:hover .card-img-top {
+  opacity: 0.5;
+}
+.card .image-card .checklist {
+  transition: 0.5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+.card .image-card:hover .checklist{
+    opacity: 1;
+}
+.right-bar {
+  /* display: flex; */
+  overflow: scroll;
+  height: 93.1vh;
+  flex: 2;
+  background-color: rgb(255, 255, 255);
+  font-family: "cereal app";
+  min-width: 200px;
+  margin-left: 10px;
+  font-size: 12.4px;
+  margin-top: 10px;
+}
+.right-bar .empty{
+  text-align: center;
+  font-size: 16px;
+}
+.right-bar .empty .text-secondary{
+  font-size: 13px;
+
+}
+/* for empty chart */
+.right-bar .empty img{
+  width: 200px;
+  height: 200px;
+
+}
+
+.right-bar .light{
+  font-size: 12px;
+  color: #747070;
+  font-weight: lighter;
+}
+.right-bar img{
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+}
+.right-bar .total{
+  margin-top: 100px;
+}
+.right-bar .button-check{
+  display: flex;
+  justify-content: center;
+}
+.right-bar .price{
+  display: flex;
+  align-items: flex-end;
+}
+.right-bar .page-link{
+  background: #82DE3A;
+}
+
+.right-bar .btn{
+  width: 480px;
+  height: 60px;
+  border-radius: 20px;
+}
+
+/* modal add */
+.add {
+  padding-left: 20px;
+  font-family: "cereal app";
+  font-size: 20px;
+}
+.add p {
+  font-size: 25px;
+  font-weight: bolder;
+}
+.add input {
+  width: 300px;
+}
+
+.add .price {
+  width: 200px;
+}
+.add select {
+  width: 200px;
+}
+.button-add {
+  display: flex;
+  justify-content: flex-end;
+}
+.button-add button {
+  margin: 10px;
+  width: 100px;
+  height: 50px;
+}
+
+
+/* breakpoint for modal */
+@media only screen and (max-width: 988px) {
+  .p-footer {
+    font-size: 19px;
+  }
+  .modal-footer button {
+    width: 300px;
+    margin: 0 auto;
+    height: 50px;
+    background-color: #f24f8a;
+    border-radius: 10px;
+    font-family: "cereal app";
+    font-size: 19px;
+    color: #ffff;
+    margin-top: -10px;
+    margin-bottom: -4px;
+  }
+
+  .table {
+    font-size: 19px;
+  }
+  table .casier {
+    font-size: 15px;
+  }
+
+  .right-bar .pic{
+    display: flex;
+    min-width: 150px;
+    justify-content: flex-start;
+}
+}
+
+/* for button */
+@media only screen and (min-width: 1260px) {
+  .header , .chart{
+    font-size: 30px;
+
+  }
+  .right-bar .checkout button {
+    margin: 10px 10px;
+    width: 370px;
+    height: 50 px;
+  }
+}
+@media only screen and (min-width: 998px) {
+  .add input {
+    width: 500px;
+  }
+  .add .price {
+    width: 340px;
+  }
+
+  .right-bar .btm{
+    padding-left: 50px;
+  }
+
+  .right-bar img{
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+  }
+  .right-bar{
+    font-size: 20px;
+  }
+  .right-bar .light{
+    font-size: 17px;
+  }
+  .right-bar .empty{
+    font-size: 24px;
+  }
+  .right-bar .empty .text-secondary{
+    font-size: 18px;
+  }
+}
