@@ -3,13 +3,47 @@ import React from "react";
 // import Axios from "axios";
 
 import Header from "../components/header";
-// import Counter from "../components/Counter";
-// import Books from "../components/Books";
-
+import LeftBar from "../components/leftBar";
+import FoodItem from "../components/food-items";
+import CartBar from "../components/CartBar"
+import ModalAdd from "../components/modalAdd";
+ 
+ 
 class Home extends React.Component {
+    constructor(){
+        super();
+        this.state = {
+            RightBarDisplay : false,
+        };
+        this.handleClickRightBar = this.handleClickRightBar.bind(this);
+    }
+    handleClickRightBar = () =>{
+        this.setState({
+            RightBarDisplay :!this.state.RightBarDisplay
+        })
+    }
+   
     render() {
         return (
-            <Header></Header>
+            <>  
+                <div className="row">
+                   <div className="col-md-8 col-12">
+                        <div className="row">
+                            <Header  ifClickMenu ={this.handleClickRightBar}/>
+                        </div>
+                        <div className="row">
+                            <div className="main">
+                                <LeftBar/>
+                                <FoodItem/>
+                                <ModalAdd/>
+                            </div>
+                        </div>
+                   </div>
+                   <CartBar  displayed ={this.state.RightBarDisplay} />
+                </div>
+                
+            </>
+            
         )
     }
 }
