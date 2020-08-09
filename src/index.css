@@ -97,13 +97,18 @@ h3{
   /* -ms-transform: translate(-50%, -50%); */
   text-align: center;
 }
-
+.card .image-card img.click{
+  opacity: .6;
+}
 .card .image-card .checklist img{
   width: 60px;
   height: 60px;
 }
 .card .image-card:hover .checklist{
     opacity: 1;
+}
+.card .image-card.click .checklist{
+  opacity: 1;
 }
 
 .cart{
@@ -141,7 +146,7 @@ h3{
   height: 30%;
   border-radius: 5%;
   margin: 0 5px;
-  background-color: #82DE3A;
+  background-color: #90df53;
   border: none;
   outline: none;
   font-size: large;
@@ -159,9 +164,11 @@ h3{
   margin: 0 auto;
   text-align: center;
 }
-.right-bar .price-cart p{
-  text-align: center;
+.right-bar .price-cart.d-flex{
+  display: flex;
+  justify-content: flex-end;
 }
+
 
 
 .modal .modal-header{

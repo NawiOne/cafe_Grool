@@ -30,11 +30,6 @@ componentDidMount = () =>{
   
 }
 
-// componentDidUpdate =() =>{
-//     console.log(this.state.carts.length)
-// }
-
-
     render(){ 
         return(
             <div className="row ">

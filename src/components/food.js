@@ -4,6 +4,19 @@ const Thick = require('../img/thick-figma.png');
 // const Fork = require('../img/fork.png');
 
 class Food extends React.Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            click : false
+        }
+    }
+
+    handleClick = () =>{
+        this.setState({
+            click : !this.state.click
+        })
+    }
+
 componentDidUpdate(){
     this.props.getMenu()
 }
