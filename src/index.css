@@ -20,10 +20,19 @@ code {
 h3{
   font-weight: bold;
 }
+
+
+
+
 .header img{
   height: 35px;
   width: 35px;
   margin-bottom: 5px;
+}
+.header button{
+  border: none;
+  outline: none;
+  
 }
 
 .main{
@@ -39,6 +48,10 @@ h3{
   padding-left: 10px;
   height: 93.1vh;
   overflow: hidden;
+}
+.left button{
+  border: none;
+  outline: none;
 }
 .left li{
    margin: 10px auto;
@@ -133,6 +146,10 @@ h3{
   width: 250px;
   height: 250px;
 }
+
+.right-bar .cart-item{
+  margin-bottom: 10px;
+}
 .right-bar .img-cart .pic{
   width: 70%;
   height: 70%;
@@ -151,6 +168,7 @@ h3{
   outline: none;
   font-size: large;
 }
+
 .right-bar .name-cart button:focus{
   border: none;
   outline: none;
@@ -160,7 +178,7 @@ h3{
 }
 
 .right-bar .name-cart .counter{
-  width: 80%;
+  width: 100%;
   margin: 0 auto;
   text-align: center;
 }
@@ -169,8 +187,16 @@ h3{
   justify-content: flex-end;
 }
 
-
-
+.btn-cart{
+  display: flex;
+  justify-content: center;
+  width: 90%;
+  margin : 0 auto
+}
+.col-12.d-flex.justify-content-between{
+  margin-top: 50px;
+  margin-bottom: -20px;
+}
 .modal .modal-header{
   border-bottom: none;
   
@@ -193,14 +219,24 @@ h3{
 .modal .category{
   width: 50%;
 }
-
-.modal .btn-cancel{
-  width: 130px;
+.btn-pink{
   background-color: #F24F8A;
 }
-.modal .btn-add{
-  width: 130px;
+.btn-blue{
   background-color:  #57CAD5;
+}
+.modal.add .btn-cancel{
+  width: 130px;
+  
+}
+.modal.add .btn-add{
+  width: 130px;
+  
+}
+.modal.checkout .btn{
+  width: 90%;
+  margin :8px auto;
+
 }
 
 

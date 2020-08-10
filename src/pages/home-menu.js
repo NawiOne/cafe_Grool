@@ -1,12 +1,12 @@
 import React from "react";
-// import { Link } from "react-router-dom";
-// import Axios from "axios";
 
 import Header from "../components/header";
 import LeftBar from "../components/leftBar";
 import FoodItem from "../components/food-items";
 import CartBar from "../components/CartBar"
 import ModalAdd from "../components/modalAdd";
+import ModalCheckout from "../components/modalCheckout";
+
  
  
 class Home extends React.Component {
@@ -17,6 +17,8 @@ class Home extends React.Component {
         };
         this.handleClickRightBar = this.handleClickRightBar.bind(this);
     }
+
+  
     handleClickRightBar = () =>{
         this.setState({
             RightBarDisplay :!this.state.RightBarDisplay
@@ -36,10 +38,12 @@ class Home extends React.Component {
                                 <LeftBar/>
                                 <FoodItem/>
                                 <ModalAdd/>
+                                <ModalCheckout/>
                             </div>
                         </div>
                    </div>
-                   <CartBar  displayed ={this.state.RightBarDisplay} />
+                   <CartBar  displayed ={this.state.RightBarDisplay} 
+                   />
                 </div>
                 
             </>

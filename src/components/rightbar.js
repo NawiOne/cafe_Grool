@@ -12,7 +12,7 @@ state ={
 
 
 getCart = () =>{
-    const getCart = "http://localhost:8000/cart/getcart";
+    const getCart = process.env.REACT_APP_GET_CART;
     Axios.get(getCart)
     .then((res) =>{
         this.setState({

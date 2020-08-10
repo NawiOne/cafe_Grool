@@ -26,7 +26,7 @@ class ModalAdd extends React.Component {
 
   }
   handleSubmit = () =>{
-    const queryAdd = "http://localhost:8000/insert";
+    const queryAdd = process.env.REACT_APP_INSERT_MENU;
     Axios.post(queryAdd, this.state.dataMenu)
     .then((res) =>{
         alert("Adding menu is success")
@@ -41,7 +41,7 @@ class ModalAdd extends React.Component {
   render() {
     return (
       <>
-        <div className="modal fade" id="modal-add" tabIndex="-1" aria-labelledby="modal-add" aria-hidden="true">
+        <div className="modal add fade" id="modal-add" tabIndex="-1" aria-labelledby="modal-add" aria-hidden="true">
           <div className="modal-dialog modal-dialog-centered">
             <div className="modal-content">
               <div className="modal-header">
@@ -56,7 +56,7 @@ class ModalAdd extends React.Component {
                     <label htmlFor="name">Name</label>
                   </div>
                   <div className="col-10">
-                    <input className="form-control shadow" name="name" type="text" id="name" autoComplete="off" onChange={this.handleForm} />
+                    <input className="form-control shadow" name="name" type="text" id="name" autoComplete="off" onChange={this.handleForm}/>
                   </div>
                 </div>
                 <div className="row">
@@ -80,7 +80,7 @@ class ModalAdd extends React.Component {
                     <label htmlFor="cat">Category</label>
                   </div>
                   <div className="col-10">
-                    <select className="form-control shadow category" name="id_category" id="cat" aria-valuenow="category" autoComplete="off" onChange={this.handleForm}>
+                    <select className="form-control shadow category" name="id_category" id="cat"  autoComplete="off" onChange={this.handleForm}>
                       <option defaultValue="1">Appetizers</option>
                       <option value="2">Main Dish</option>
                       <option value="3">Dessert</option>
@@ -90,8 +90,8 @@ class ModalAdd extends React.Component {
                 </div>
               </div>
               <div className="modal-footer">
-                <button type="button" className="btn  btn-cancel" data-dismiss="modal" >Cancel</button>
-                <button type="button" className="btn btn-add"  onClick={this.handleSubmit} data-dismiss="modal">Add</button>
+                <button type="button" className="btn  btn-pink btn-cancel" data-dismiss="modal" >Cancel</button>
+                <button type="button" className="btn btn-blue btn-add"  onClick={this.handleSubmit} data-dismiss="modal">Add</button>
               </div>
             </div>
           </div>

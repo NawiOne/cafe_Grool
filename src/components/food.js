@@ -22,7 +22,7 @@ componentDidUpdate(){
 }
 
     cartChecked = (id_menu, total) => {
-        const queryGetId = `http://localhost:8000/cart/getbyid/${id_menu}`;
+        const queryGetId = `${process.env.REACT_APP_GET_CART_ID}${id_menu}`;
         Axios.get(queryGetId).then((res) => {
             const data = res.data.data;
             if(!data.length) {
@@ -63,7 +63,7 @@ componentDidUpdate(){
                                         }}
                                     />
                                     <div className="checklist">
-                                        <img src={Thick} />
+                                        <img alt="thick" src={Thick} />
                                     </div>
                                 </div>
                                 <div className="card-body">

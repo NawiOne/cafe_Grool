@@ -19,9 +19,9 @@ class Header extends React.Component {
             <>
                 <div className="col-12 header shadow">
                         <nav className="nav">
-                            <a href="#" className="nav-item mr-auto ml-3 hbgr" onClick={this.handleClickMenu}><img src={menu} alt="menu" /></a>
+                            <button className="nav-item mr-auto ml-2 hbgr" onClick={this.handleClickMenu}><img src={menu} alt="menu" /></button>
                             <h3>food items</h3>
-                            <a href="" className="nav-item ml-auto pr-3"><img src={search} alt="search" /></a>
+                            <button className="nav-item ml-auto pr-3"><img src={search} alt="search" /></button>
                         </nav>
                 </div>
             </>

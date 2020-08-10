@@ -12,7 +12,7 @@ class FoodItem extends React.Component {
     }
 
     getAllMenu = () =>{
-        const query = "http://localhost:8000/getalldata";
+        const query = process.env.REACT_APP_GET_MENU;
         Axios.get(query).then((res) =>{
             this.setState({
                 menu : res.data.data
@@ -24,7 +24,7 @@ class FoodItem extends React.Component {
     }
 
     getCart = () =>{
-        const getCart = "http://localhost:8000/cart/getcart";
+        const getCart = process.env.REACT_APP_GET_CART;
         Axios.get(getCart)
         .then((res) =>{
             this.setState({

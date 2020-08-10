@@ -3,9 +3,7 @@ import Cart from "../components/cart";
 import RightBar from "../components/rightbar";
 
 class CartBar extends React.Component {
-    constructor(props){
-        super(props)
-    }
+ 
     render() {
         return (
             <div className={this.props.displayed

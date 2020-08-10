@@ -5,7 +5,7 @@ class EmptyCArt extends React.Component {
     render() {
         return (
             <>
-                <img className="img-fluid" src={cart} />
+                <img alt="cart" className="img-fluid" src={cart} />
                 <h3>Your cart is empty</h3>
                 <p className="text-muted">Please add some items from the menu</p>
             </>
