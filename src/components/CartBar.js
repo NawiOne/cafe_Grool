@@ -1,5 +1,5 @@
 import React from "react";
-import Cart from "../components/cart";
+import CartHeader from "./cartHeader";
 import RightBar from "../components/rightbar";
 
 class CartBar extends React.Component {
@@ -9,7 +9,7 @@ class CartBar extends React.Component {
             <div className={this.props.displayed
                 ? "col-md-4 cartBar show" 
                 : "col-md-4 cartBar"}>
-                <Cart />
+                <CartHeader />
                 <RightBar />
             </div>
         );

@@ -15,7 +15,7 @@ class Home extends React.Component {
         this.state = {
             RightBarDisplay : false,
         };
-        this.handleClickRightBar = this.handleClickRightBar.bind(this);
+       
     }
 
   

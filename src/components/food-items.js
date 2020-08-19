@@ -12,7 +12,7 @@ class FoodItem extends React.Component {
     }
 
     getAllMenu = () =>{
-        const query = process.env.REACT_APP_GET_MENU;
+        const query = "http://localhost:8000/getalldata?page=1&limit=6";
         Axios.get(query).then((res) =>{
             this.setState({
                 menu : res.data.data

@@ -9,13 +9,13 @@ class LeftBar extends React.Component {
                 <aside className="left-bar pt-3 shadow">
                     <ul className="nav flex-column">
                         <li className="nav-item pl-auto">
-                            <button className="nav-link" href=""><img src={fork} alt="" /></button>
+                            <button className="nav-link bg-transparent" href=""><img src={fork} alt="" /></button>
+                        </li>
+                        <li className="nav-item ">
+                            <button className="nav-link bg-transparent" href=""><img src={clipboard} alt="" /></button>
                         </li>
                         <li className="nav-item">
-                            <button className="nav-link" href=""><img src={clipboard} alt="" /></button>
-                        </li>
-                        <li className="nav-item">
-                            <button className="nav-link" href="#"><img src={add} alt="" /></button>
+                            <button className="nav-link  bg-transparent" href="#"><img src={add} alt="" /></button>
                         </li>
                     </ul>
                 </aside>

@@ -3,17 +3,10 @@ const menu = require('../img/menu.png');
 const search = require('../img/search.png')
 
 class Header extends React.Component {
-    constructor(props){
-        super(props);
-        
-    this.handleClickMenu= this.handleClickMenu.bind(this)
-    }
-
-    handleClickMenu(){
+    handleClickMenu =() =>{
         this.props.ifClickMenu()
     }
     
-
     render() {
         return (
             <>
