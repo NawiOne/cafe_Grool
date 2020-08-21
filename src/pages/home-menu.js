@@ -57,6 +57,40 @@ class Home extends React.Component {
             console.log(this.state.carts);
         }
     };
+  
+    handlePlus = (id) =>{
+        const index = this.state.carts.findIndex((el) => {
+            return el.id_menu === id;
+        });
+        let newCart = [...this.state.carts];
+        newCart[index] = {
+            ...newCart[index],
+            quantity : this.state.carts[index].quantity + 1
+        };
+        this.setState({
+            carts : newCart
+        })
+
+
+    }
+    handleMinus = (id) =>{
+        const index = this.state.carts.findIndex((el) => {
+            return el.id_menu === id;
+        });
+        if(this.state.carts[index].quantity > 1){
+               let newCart = [...this.state.carts];
+        newCart[index] = {
+            ...newCart[index],
+            quantity : this.state.carts[index].quantity -1
+        };
+        this.setState({
+            carts : newCart
+        })
+
+        }
+     
+
+    }
 
     handlecancelcart = () =>{
         this.setState({
@@ -97,6 +131,8 @@ class Home extends React.Component {
                         ifClickMenu={this.handleClickRightBar}
                         arrCart={this.state.carts}
                         cancel ={this.handlecancelcart}
+                        handlePlus={(id) => this.handlePlus(id)}
+                        handleMinus={(id) => this.handleMinus(id)}
 
                     />
                 </div>

@@ -6,6 +6,7 @@ class RightBar extends React.Component {
     handleCancel = () =>{
         this.props.cancel()
     }
+  
     
     render() {
         
@@ -20,6 +21,8 @@ class RightBar extends React.Component {
                     <CartList
                         arrCart={this.props.arrCart}
                         cancel = {() => this.handleCancel()}
+                        handlePlus={(id) => this.props.handlePlus(id)}
+                        handleMinus={(id) => this.props.handleMinus(id)}
                     />
                 </div>
             </>
