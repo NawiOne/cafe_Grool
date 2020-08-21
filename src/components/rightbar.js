@@ -1,46 +1,30 @@
-import React from "react";
-// import EmptyCart from "../components/empty-cart";
-import ListCart from "../components/listCart";
-import Axios from "axios"
+import React from 'react';
+import CartHeader from './cartHeader';
+import CartList from './cartList';
 
-
-class RightBar extends React.Component{
-state ={
-    carts :[],
-    menu: []
-}
-
-
-getCart = () =>{
-    const getCart = process.env.REACT_APP_GET_CART;
-    Axios.get(getCart)
-    .then((res) =>{
-        this.setState({
-            carts : res.data.data
-        })
+class RightBar extends React.Component {
+    handleCancel = () =>{
+        this.props.cancel()
+    }
     
-    })
-
-}
-
-componentDidMount = () =>{
-    this.getCart();
-    
-    
-  
-}
-
-    render(){ 
-        return(
-            <div className="row ">
-                <div className="col-12 right-bar">
-                   <ListCart  
-                   carts ={this.state.carts}
-                   getCart={() => this.getCart()}
-                   />
+    render() {
+        
+        return (
+            <>
+                {console.log(this.props.arrCart)}
+                <div className={this.props.displayed
+                    ? "col-md-4 cartBar show"
+                    : "col-md-4 cartBar"}>
+                    <CartHeader click={this.props.ifClickMenu} 
+                    arrCart={this.props.arrCart}/>
+                    <CartList
+                        arrCart={this.props.arrCart}
+                        cancel = {() => this.handleCancel()}
+                    />
                 </div>
-            </div>
-        )
+            </>
+        );
     }
 }
+
 export default RightBar;

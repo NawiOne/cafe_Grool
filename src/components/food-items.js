@@ -1,59 +1,45 @@
 import React from "react";
-import Food from "./food";
-import Axios from "axios"
 
-class FoodItem extends React.Component {
-    constructor(){
-        super();
-        this.state = {
-            menu :[],
-            carts :[]
-        }
-    }
 
-    getAllMenu = () =>{
-        const query = "http://localhost:8000/getalldata?page=1&limit=6";
-        Axios.get(query).then((res) =>{
-            this.setState({
-                menu : res.data.data
-            })
-            console.log(this.state.menu)
-        }).catch((err) =>{
-            console.log(err)
-        })
-    }
+const Thick = require('../img/thick-figma.png');
 
-    getCart = () =>{
-        const getCart = process.env.REACT_APP_GET_CART;
-        Axios.get(getCart)
-        .then((res) =>{
-            this.setState({
-                carts : res.data.data
-            })
-            console.log(this.state.carts)
-        })
-    }
-    componentDidMount = () =>{
-        this.getAllMenu();
-        this.getCart()
-    }
-   
-    render() {
-        return (
-            <>
-                <div className="items">
-                    <div className="row">
-                            <Food 
-                             menus ={this.state.menu}
-                             getCart={() => this.getCart()}
-                             getMenu={() => this.getAllMenu()}
-                             
-                             />
-                    </div>
+
+
+const FoodItem = (props) => {
+    return (
+        <>
+            <div className="items">
+                <div className="row">
+                    {props.menus.map((menu) => {
+                        return (
+                            <div className="col-12 col-sm-6 col-lg-4 food" key={menu.id_menu}>
+                                <div className="card bg-transparent">
+                                    <div className="image-card">
+                                        <img src={menu.picture} className="image-card img-fluid" alt=" food"
+                                            onClick={() =>
+                                                props.addCart(
+                                                    menu.id_menu,
+                                                    menu.name,
+                                                    menu.price,
+                                                    menu.picture)}
+                                        />
+                                        <div className="checklist">
+                                            <img alt="thick" src={Thick} />
+                                        </div>
+                                    </div>
+                                    <div className="card-body">
+                                        <h5 className="card-title">{menu.name}</h5>
+                                        <p>Rp. {menu.price}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        );
+                    })
+                    }
                 </div>
-            </>
-        );
-    }
-}
+            </div>
+        </>
+    );
+};
 
 export default FoodItem;

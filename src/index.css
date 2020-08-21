@@ -17,18 +17,22 @@ code {
   padding: 8px;
   font-size: 25px;
   font-weight: bolder;
+  display: flex;
+  justify-content: space-between;
+ 
 
+}
+nav.nav{
+  display: flex;
+  justify-content: space-between;
 }
 h3{
   font-weight: bold;
 }
 
-
-
-
 .header img{
-  height: 35px;
-  width: 35px;
+  height: 30px;
+  width: 30px;
   margin-bottom: 5px;
 }
 .header button{
@@ -36,6 +40,20 @@ h3{
   outline: none;
   background-color: transparent;
   
+}
+.header button.basket{
+  position: relative;
+}
+.header button.basket span{
+  position: absolute;
+  right: 5px;
+  top:20px;
+  background-color: rgba(68, 145, 207, 0.973);
+  width: 50%;
+  height: 50%;
+  border-radius: 50%;
+  font-size: .6em;
+  padding: 2px;
 }
 
 .main{
@@ -92,12 +110,14 @@ h3{
 .items .card{
   border: none;
   font-size: 14px;
+  font-weight: bold;
 }
 
 .items .card p{
   font-family: 'Roboto', sans-serif;
   font-size: 25px;
   line-height: 33px;
+  font-weight: bold;
 }
 .food .card .image-card img{
   width: 100%;
@@ -106,6 +126,9 @@ h3{
   position: relative;
 }
 .food .card .image-card img:hover{
+  opacity: .6;
+}
+.food .card .image-card img.click{
   opacity: .6;
 }
 .card .image-card .checklist {
@@ -136,24 +159,29 @@ h3{
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2.4px;
-  font-size: 24px;
-  background: white;
+  font-size: 22px;
+  background: rgb(255, 254, 254);
   overflow: hidden;
+  font-weight:bolder;
 
 }
-.cartBar{
-  background: white;
+.cart-bar.bg-success{
+  background-color: white;
 }
 
 .right-bar{
   text-align:  center;
   overflow-y: scroll;
   height: 93.3vh;
+
 }
 .right-bar img{
   width: 250px;
   height: 250px;
+}
+.right-bar .list-cart{
+  font-size: 1.1em;
+  font-weight: bold;
 }
 
 .right-bar .cart-item{
@@ -162,7 +190,8 @@ h3{
 .right-bar .img-cart .pic{
   width: 70%;
   height: 70%;
-  border-radius: 6px;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.4);
 
 }
 
@@ -170,9 +199,9 @@ h3{
 .right-bar .name-cart button{
   width: 30%;
   height: 30%;
-  border-radius: 5%;
+  /* border-radius: 5%; */
   margin: 0 5px;
-  background-color: #90df53;
+  background-color: #7dd13d;
   border: none;
   outline: none;
   font-size: large;
@@ -186,21 +215,29 @@ h3{
   background-color: #54bd03;
 }
 
-.right-bar .name-cart .counter{
+.right-bar .name-cart .counter{ 
   width: 100%;
   margin: 0 auto;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .right-bar .price-cart.d-flex{
   display: flex;
   justify-content: flex-end;
 }
 
+.btn.btn-blue.btn-lg.btn-block.mb-3{
+  margin-bottom: 40px;
+}
+
 .btn-cart{
   display: flex;
   justify-content: center;
   width: 90%;
-  margin : 0 auto
+  margin : 0 auto;
+ 
 }
 .col-12.d-flex.justify-content-between{
   margin-top: 50px;
@@ -249,7 +286,7 @@ h3{
 }
 
 
-@media screen and (max-width:800px){
+@media screen and (max-width:768px){
   .cart{
     padding: 2.5px;
   }
@@ -261,12 +298,12 @@ h3{
     width: 80vw;
     right: 0;
     height: 100vh;
-    transition: .8s ease-in-out;
+    background-color: #ffffff;
+    transition: .8s cubic-bezier(0.215, 0.610, 0.355, 1);
     
   }  
   .cartBar.show{
     transform: translateX(0);
-    opacity: 1;
     display: flex;
     flex-direction: column;
     
@@ -278,6 +315,14 @@ h3{
     font-size: 27px;
     font-weight: bold;
 
+  }
+  .header img{
+    height: 35px;
+    width: 35px;
+    margin-bottom: 5px;
+  }
+  .header button.basket{
+    display: none;
   }
   .right-bar .img-cart .pic{
     width: 100%;

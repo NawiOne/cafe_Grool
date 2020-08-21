@@ -55,8 +55,8 @@ class ModalCheckout extends React.Component {
 
                             </div>
                             <div className="modal-footer ">
-                                <button type="button" class="btn btn-pink btn-lg btn-block " data-dismiss="modal">Print</button>
-                                <button type="button" class="btn btn-blue btn-lg btn-block" data-dismiss="modal">Send Email</button>
+                                <button type="button" className="btn btn-pink btn-lg btn-block " data-dismiss="modal">Print</button>
+                                <button type="button" className="btn btn-blue btn-lg btn-block" data-dismiss="modal">Send Email</button>
                             </div>
                         </div>
                     </div>
