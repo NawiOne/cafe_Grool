@@ -1,4 +1,4 @@
-![me](https://drive.google.com/file/d/1F8vBxkAB4uML7FDc62zDQZMbtbyYQk6G/view?usp=sharing)
+![me](https://drive.google.com/file/d/1F8vBxkAB4uML7FDc62zDQZMbtbyYQk6G/view)
 Nawi Rudin
 ---
 # POS APP
