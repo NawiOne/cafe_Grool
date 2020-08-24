@@ -23,7 +23,7 @@ class Cart extends React.Component {
                     </ul>
                     <ul className="nav mr-auto mt-1">
                         <li className="nav-item center">
-                            <p>Cart <span className="badge badge-info">{this.props.arrCart.length}</span></p>  
+                            <p>Cart <span className="badge">{this.props.arrCart.length}</span></p>  
                         </li>
                     </ul>
                 </div>

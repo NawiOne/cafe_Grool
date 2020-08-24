@@ -8,10 +8,9 @@ const CartList = (props) => {
     const handleCancel = () => {
         props.cancel();
     };
-    const price =
-        props.arrCart.map((el) => {
-            return el.price*el.quantity;
-        });
+    const price = props.arrCart.map((el) => {
+        return el.price * el.quantity;
+    });
     const total = price.reduce((total, index) => {
         return total + index;
     }, 0);

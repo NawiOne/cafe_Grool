@@ -1,5 +1,5 @@
 import React from "react";
-import {  Link} from "react-router-dom";
+import {Link} from "react-router-dom";
 
 const fork = require('../img/fork.png');
 const clipBoard = require('../img/clipboard.png');
@@ -10,11 +10,13 @@ class LeftBar extends React.Component {
     render() {
         return (
             <>
-                
-                <div className="left">
+
+                <div className={this.props.displayed
+                    ? "left hide"
+                    : "left"}>
                     <ul className="nav flex-column">
                         <li className="nav-item">
-                           <Link to="/history" ><button className="nav-link active" ><img alt="fork" src={fork} /></button></Link>
+                            <Link to="/history" ><button className="nav-link active" ><img alt="fork" src={fork} /></button></Link>
                         </li>
                         <li className="nav-item">
                             <Link to="/"><button className="nav-link"><img alt="clip" src={clipBoard} /></button></Link>
@@ -24,7 +26,7 @@ class LeftBar extends React.Component {
                         </li>
                     </ul>
                 </div>
-                
+
             </>
         );
     }

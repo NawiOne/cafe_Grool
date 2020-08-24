@@ -35,6 +35,11 @@ h1{
   padding-right: 5px;
   overflow: hidden;
   justify-content: center;
+  transition: 0.6s ease-in-out;
+}
+.left-bar.hide{
+  transform: translate(-100%);
+  background-color: white;
 }
 .left-bar button{
   border: none;

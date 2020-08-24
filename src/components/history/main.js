@@ -1,6 +1,7 @@
 import React from "react";
-import Card from "../history/card";
-import Table from "../history/table";
+import Card from "./card";
+import Table from "./table";
+import Chart from './chart';
 
 
 class Main extends React.Component {
@@ -9,10 +10,11 @@ class Main extends React.Component {
             <>
                 <main className="content">
                     <div className="row">
-                        <Card/>
+                        <Card />
                     </div>
-                    <Table/>
-                    
+                    <Chart/>
+                    <Table />
+
                 </main>
             </>
         );

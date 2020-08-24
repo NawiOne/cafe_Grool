@@ -6,7 +6,9 @@ class LeftBar extends React.Component {
     render() {
         return (
             <>
-                <aside className="left-bar pt-3 shadow">
+                <aside className={this.props.displayed
+                ? "left-bar pt-3 shadow" 
+                : "left-bar pt-3 shadow hide"}>
                     <ul className="nav flex-column">
                         <li className="nav-item pl-auto">
                             <button className="nav-link bg-transparent" href=""><img src={fork} alt="" /></button>
@@ -15,7 +17,7 @@ class LeftBar extends React.Component {
                             <button className="nav-link bg-transparent" href=""><img src={clipboard} alt="" /></button>
                         </li>
                         <li className="nav-item">
-                            <button className="nav-link  bg-transparent" href="#"><img src={add} alt="" /></button>
+                            <button className="nav-link  bg-transparent" href="#"><img src={add} alt="" data-toggle="modal" data-target="#modal-add"/></button>
                         </li>
                     </ul>
                 </aside>

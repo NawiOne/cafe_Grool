@@ -12,7 +12,6 @@ class RightBar extends React.Component {
         
         return (
             <>
-                {console.log(this.props.arrCart)}
                 <div className={this.props.displayed
                     ? "col-md-4 cartBar show"
                     : "col-md-4 cartBar"}>
