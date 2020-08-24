@@ -1,4 +1,4 @@
-#POS APP
+# POS APP
 
 Build with:
 * JavaScript Library
