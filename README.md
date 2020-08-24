@@ -9,5 +9,5 @@ POS software is what brick and mortar retailers use to conduct sales. It's somet
 * [jquery](https://jquery.com/)
 * [MySQL](https://www.mysql.com/)
 * [Bootstrap](https://getbootstrap.com/)
-* [Canvas jS](canvasjs.com)
+* [Canvas jS](https://canvasjs.com/)
   
