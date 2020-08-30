@@ -45,6 +45,9 @@ h1{
   border: none;
   outline: none;
 }
+.left-bar .nav-item.add.hide{
+display: none;
+}
 .left-bar img {
   width: 30px;
   height: 30px;
@@ -150,8 +153,6 @@ main .card .round-3 {
   height: 25px;
   font-size: 13px;
   font-weight: lighter;
-
-
 }
 
 

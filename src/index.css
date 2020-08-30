@@ -28,7 +28,8 @@ nav.nav {
 .header nav.title {
   margin-left: 50px;
 }
-.header h3 {
+.header h3.food {
+  font-family: "Roboto", sans-serif;
   font-weight: bolder;
   cursor: pointer;
 }
@@ -86,6 +87,10 @@ nav.nav {
 }
 .left li {
   margin: 10px auto;
+}
+.left li.add.hide {
+  margin: 10px auto;
+  display: none;
 }
 
 .left img {
@@ -315,8 +320,8 @@ nav.nav {
 .modal-search .modal-body {
   padding-top: 40px;
   text-align: center;
-  font-weight: bold;
-  background-color: #eff8ff;
+  font-weight: bolder;
+  background-color: #f7fbfd;
   
   border-radius: 10px;
 }
@@ -329,20 +334,26 @@ nav.nav {
   align-items: center;
   box-sizing: border-box;
 }
+
 .modal-search .modal-body .sort-by select {
   width: 80px;
   height: 30px;
   margin-left: 8px;
   font-size: small;
+  border: 2px solid rgb(110, 72, 72);
 
+}
+.modal-search .modal-body input{
+  border: 2px solid rgb(110, 72, 72);
 }
 .modal-search .modal-body .sort-by label {
   font-size: smaller;
   font-weight: normal;
   margin-left: -20px;
 }
-.modal-search button {
-  border: 3px solid rgb(131, 108, 108);
+.modal-search button.search {
+  width: 50px;
+  border: 3px solid rgb(110, 72, 72);
   border-radius: 10px;
 }
 .modal-search button:link {

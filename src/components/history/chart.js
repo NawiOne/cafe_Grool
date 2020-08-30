@@ -74,14 +74,14 @@ class App extends React.Component {
 				<div className="row">
 					<div className="col-12 order">
 						<div className="card shadow">
-							<div class="card-header bg-transparent">
+							<div className="card-header bg-transparent">
 								<h3>Revenue</h3>
 								<select name="select" id="" >
 									<option value="month">Month</option>
 									<option value="month">Year</option>
 								</select>
 							</div>
-							<div class="card-body ">
+							<div className="card-body ">
 								<div>
 									<CanvasJSChart options={options}
 										onRef={ref => this.chart = ref}

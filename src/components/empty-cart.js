@@ -2,8 +2,7 @@ import React from "react";
 const cart = require("../img/chart.png");
 require ('../css/cart.css')
 
-class EmptyCArt extends React.Component {
-    render() {
+const EmptyCart =() =>{
         return (
             <>
                 <div className="empty-cart">
@@ -15,7 +14,6 @@ class EmptyCArt extends React.Component {
             </>
 
         );
-    }
+    
 }
-
-export default EmptyCArt;
+export default EmptyCart

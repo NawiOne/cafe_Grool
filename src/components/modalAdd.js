@@ -1,45 +1,49 @@
 import React from "react";
-import Axios from "axios"
+import Axios from "axios";
+import {connect} from 'react-redux';
+import {insertMenuCreator} from '../redux/actions/menuAndCart';
 
 class ModalAdd extends React.Component {
-  constructor(){
-    super();
-    this.state = {
-      dataMenu : {
-        name: '',
-        picture: null,
-        price : null,
-        id_category: null,
-      }
 
-    }
-  }
+  state = {
+      name: '',
+      picture: null,
+      price: null,
+      id_category: null,
+  };
 
-  handleForm = (event) =>{
-    const newDataMenu = {...this.state.dataMenu};
-    newDataMenu[event.target.name] = event.target.value;
-    this.setState({
-      dataMenu : newDataMenu,
-      
-    } )
-      
 
-  }
-  handleSubmit = () =>{
-    const queryAdd = process.env.REACT_APP_INSERT_MENU;
-    Axios.post(queryAdd, this.state.dataMenu)
-    .then((res) =>{
-        console.log(res)
-        
-    }).catch((err) =>{
-      console.log(err)
-    })
-  }
+  handleSubmit = () => {
+    let formData = new FormData();
+    formData.append("name", this.state.name);
+    formData.append("picture", this.state.picture);
+    formData.append("price", this.state.price);
+    formData.append("id_category", this.state.id_category);
+
+    const config = {
+      headers: {
+          "content-type": "multipart/form-data",
   
+      }
+  };
+
+    const queryAdd = process.env.REACT_APP_INSERT_MENU;
+
+
+    Axios.post(queryAdd, formData, config)
+      .then((res) => {
+        console.log(res);
+
+      }).catch((err) => {
+        console.log(err);
+      });
+  };
+
 
   render() {
     return (
       <>
+      {console.log(this.state.picture)}
         <div className="modal add fade" id="modal-add" tabIndex="-1" aria-labelledby="modal-add" aria-hidden="true">
           <div className="modal-dialog modal-dialog-centered">
             <div className="modal-content">
@@ -55,7 +59,9 @@ class ModalAdd extends React.Component {
                     <label htmlFor="name">Name</label>
                   </div>
                   <div className="col-10">
-                    <input className="form-control shadow" name="name" type="text" id="name" autoComplete="off" onChange={this.handleForm}/>
+                    <input className="form-control shadow" name="name" type="text" id="name" autoComplete="off" onChange={(event) => this.setState({
+                      name: event.target.value
+                    })} />
                   </div>
                 </div>
                 <div className="row">
@@ -63,7 +69,9 @@ class ModalAdd extends React.Component {
                     <label htmlFor="image">Image</label>
                   </div>
                   <div className="col-10">
-                    <input className="form-control shadow" name="picture" type="text" id="image" autoComplete="off" onChange={this.handleForm} />
+                    <input className="form-control-file shadow" name="picture" type="file" id="image" autoComplete="off" onChange={(event) => this.setState({
+                      picture : event.target.files[0]
+                    }) } />
                   </div>
                 </div>
                 <div className="row">
@@ -71,7 +79,9 @@ class ModalAdd extends React.Component {
                     <label htmlFor="price">Price</label>
                   </div>
                   <div className="col-10">
-                    <input className="form-control shadow price" name="price" type="number" id="price" autoComplete="off" onChange={this.handleForm} />
+                    <input className="form-control shadow price" name="price" type="number" id="price" autoComplete="off" onChange={(event) => this.setState({
+                      price: event.target.value
+                    })} />
                   </div>
                 </div>
                 <div className="row">
@@ -79,7 +89,9 @@ class ModalAdd extends React.Component {
                     <label htmlFor="cat">Category</label>
                   </div>
                   <div className="col-10">
-                    <select className="form-control shadow category" name="id_category" id="cat"  autoComplete="off" onChange={this.handleForm}>
+                    <select className="form-control shadow category" name="id_category" id="cat" autoComplete="off" onChange={(event) => this.setState({
+                      id_category: event.target.value
+                    })}>
                       <option defaultValue="1">Appetizers</option>
                       <option value="2">Main Dish</option>
                       <option value="3">Dessert</option>
@@ -90,7 +102,7 @@ class ModalAdd extends React.Component {
               </div>
               <div className="modal-footer">
                 <button type="button" className="btn  btn-pink btn-cancel" data-dismiss="modal" >Cancel</button>
-                <button type="button" className="btn btn-blue btn-add"  onClick={this.handleSubmit} data-dismiss="modal">Add</button>
+                <button type="button" className="btn btn-blue btn-add" onClick={() => this.handleSubmit()} data-dismiss="modal">Add</button>
               </div>
             </div>
           </div>
@@ -100,4 +112,13 @@ class ModalAdd extends React.Component {
   }
 }
 
-export default ModalAdd;
+const mapDispatchToPRops = (dispatch) => {
+  return {
+    insertMenuCreator: (name, picture, price, id_category) => {
+      dispatch(insertMenuCreator(name, picture, price, id_category));
+    }
+  };
+};
+
+
+export default connect(null, mapDispatchToPRops)(ModalAdd);

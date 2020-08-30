@@ -1,32 +1,28 @@
 import React from 'react';
 import CartHeader from './cartHeader';
 import CartList from './cartList';
+import {connect} from 'react-redux'
 
-class RightBar extends React.Component {
-    handleCancel = () =>{
-        this.props.cancel()
-    }
-  
-    
-    render() {
-        
+
+const RightBar = (props) =>{
         return (
             <>
-                <div className={this.props.displayed
+                <div className={props.animate.rightBarDisplay
                     ? "col-md-4 cartBar show"
                     : "col-md-4 cartBar"}>
-                    <CartHeader click={this.props.ifClickMenu} 
-                    arrCart={this.props.arrCart}/>
-                    <CartList
-                        arrCart={this.props.arrCart}
-                        cancel = {() => this.handleCancel()}
-                        handlePlus={(id) => this.props.handlePlus(id)}
-                        handleMinus={(id) => this.props.handleMinus(id)}
-                    />
+                    <CartHeader/>
+                    <CartList />
                 </div>
             </>
         );
+    
+}
+
+const mapStateToProps = (state) => {
+    const {animate} = state
+    return{
+        animate
     }
 }
 
-export default RightBar;
+export default connect(mapStateToProps, null)(RightBar);

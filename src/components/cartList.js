@@ -1,29 +1,27 @@
 import React from "react";
 import EmptyCart from "../components/empty-cart";
+import { connect } from "react-redux";
+import {plusQuantityCreator, minQuantityCreator, cancelCartCreator} from "../redux/actions/menuAndCart";
+
 require('../css/cart.css');
 
 
 const CartList = (props) => {
 
-    const handleCancel = () => {
-        props.cancel();
-    };
-    const price = props.arrCart.map((el) => {
+
+    const price = props.menuAndCart.cart.map((el) => {
         return el.price * el.quantity;
     });
     const total = price.reduce((total, index) => {
         return total + index;
     }, 0);
 
-
-    if(props.arrCart.length) {
+    if(props.menuAndCart.cart.length) {
         return (
             <>
-                {console.log(props.arrCart)}
-                {console.log(total)}
                 <div className="row" key="kk">
                     <div className="col-12 right-bar">
-                        {props.arrCart.map((cart) => {
+                        {props.menuAndCart.cart.map((cart) => {
                             return (
                                 <div className="row m-4 list-cart" key={cart.id_menu}>
                                     <div className="col-sm-4 col-md-4 cart-item " >
@@ -36,11 +34,11 @@ const CartList = (props) => {
                                             <p>{cart.name}</p>
                                             <div className="counter">
                                                 <button
-                                                    onClick={() => props.handleMinus(cart.id_menu)}
+                                                    onClick={() => props.minQuantityCreator(cart.id_menu)}
                                                 >-</button>
                                                 <span>{cart.quantity}</span>
                                                 <button
-                                                    onClick={() => props.handlePlus(cart.id_menu)}
+                                                    onClick={() => props.plusQuantityCreator(cart.id_menu)}
                                                 >+</button>
                                             </div>
                                         </div>
@@ -69,7 +67,7 @@ const CartList = (props) => {
                             <div className="row mt-2 btn-cart text-center">
                                 <div className="col-12 btn-check-cancel">
                                     <button type="button" className="btn btn-pink btn-lg btn-block mb-3" data-toggle="modal" data-target="#checkout">Checkout</button>
-                                    <button type="button" className="btn btn-blue btn-lg btn-block mb-3" onClick={handleCancel}>Cancel</button>
+                                    <button type="button" className="btn btn-blue btn-lg btn-block mb-3" onClick={props.cancelCartCreator}>Cancel</button>
                                 </div>
                             </div>
                         </div>
@@ -87,4 +85,26 @@ const CartList = (props) => {
 
 
 };
-export default CartList;
+const mapStateToProps = (state) => {
+    const {menuAndCart} = state
+    return{
+        menuAndCart
+    }
+}
+
+const mapDispatchToProps = (dispatch) =>{
+    return {
+
+        plusQuantityCreator : (id)=>{
+            dispatch(plusQuantityCreator(id))
+        },
+        minQuantityCreator : (id) =>{
+            dispatch(minQuantityCreator(id))
+        },
+        cancelCartCreator: () =>{
+            dispatch(cancelCartCreator())
+        }
+    }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(CartList);
