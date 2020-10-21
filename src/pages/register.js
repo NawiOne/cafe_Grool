@@ -31,7 +31,7 @@ class Register extends React.Component {
     };
     handleSubmit = (event) => {
         event.preventDefault();
-        const url = "http://localhost:8000/auth/register";
+        const url = "http://54.198.163.118:8000/auth/register";
         Axios.post(url, this.state.user)
             .then((res) => {
                 this.setState({

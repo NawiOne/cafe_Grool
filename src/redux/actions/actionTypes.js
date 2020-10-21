@@ -1,7 +1,12 @@
 // Menu
 export const getMenuAction = "GET_MENU";
+export const getMoreAction = 'GET_MORE_MENU';
 export const searchMenuAction = "SEARCH_MENU";
 export const insertMenuAction = "INSERT_MENU";
+export const addMenuEdit = 'ADD_MENU_EDIT';
+export const deleteMenuAction = 'DELETE_MENU'
+export const editMenuAction = 'EDIT_MENU';
+export const clearAction = 'CLEAR';
 // Cart
 export const addCartAction = "ADD_CART";
 export const plusQuantityAction = "PLUS_QUANTITY";

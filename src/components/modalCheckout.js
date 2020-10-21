@@ -39,7 +39,7 @@ const ModalCheckout = (props) => {
                             <div className="row ml-1 mr-1">
                                 <div className="col-6 d-flex justify-content-start flex-column">
                                     <h4>Checkout </h4>
-                                    <p className="font-weight-normal">{user}</p>
+                                    <p className="font-weight-normal">Chasier: {user}</p>
                                 </div>
                                 <div className="col-6 d-flex justify-content-end">
                                     <h5>Receipt no: #{invoice}</h5>
@@ -89,7 +89,7 @@ const ModalCheckout = (props) => {
                         </div>
                         <div className="modal-footer ">
                             <button type="button" className="btn btn-pink btn-lg btn-block " data-dismiss="modal" onClick={()=> {props.addTransactionCreator(invoice, user, cart.toString(),totalPpn); props.cancelCartCreator()} }>Print</button>
-                            <button type="button" className="btn btn-blue btn-lg btn-block" data-dismiss="modal">Send Email</button>
+                            <button type="button" className="btn btn-blue btn-lg btn-block" data-dismiss="modal" onClick={()=> {props.addTransactionCreator(invoice, user, cart.toString(),totalPpn); props.cancelCartCreator()} }>Send Email</button>
                         </div>
                     </div>
                 </div>

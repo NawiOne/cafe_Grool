@@ -22,7 +22,7 @@ export const insertMenu = (name, picture, price, id_category) => {
     return Axios.post(url, data, {
         headers: {
             'x-access-token': "bearer " + localStorage.getItem('token'),
-            'Content-Type' : 'application/json' }
+            'Content-type' : 'form' }
     });
 }
 
@@ -40,8 +40,39 @@ export const addTrans = (invoice, cashier, orders, amount) => {
 };
 
 export const getHistory = () => {
-    const url = 'http://localhost:8000/history/getall';
+    const url = 'http://54.198.163.118:8000/history/getall';
     return Axios.get(url, {
         headers: {'x-access-token': "bearer " + localStorage.getItem('token')}
     });
 };
+
+export const getMoreMenu = (page) => {
+    const url = `http://54.198.163.118:8000/getalldata?page=${page}&limit=6`
+    return Axios.get(url)
+}
+export const deleteMenu = (id) => {
+    const url = `http://54.198.163.118:8000/delete?id=${id}`;
+    return Axios.delete(url);
+}
+
+export const editMenu = (name, image, price, id_category, id_menu) => {
+    let data = new FormData();
+    if (name !== null) {
+      data.append('name', name);
+    } else if (image !== null) {
+      data.append('image', image);
+    } else if (price !== null) {
+      data.append('price', price);
+    } else if (id_category !== null) {
+      data.append('id_category', id_category);
+    }
+    data.append('id_menu', id_menu);
+    const config = {
+      headers: {
+        'content-type': 'multipart/form-data',
+      },
+    };
+    const url = 'http://54.198.163.118:8000/update';
+    console.log(FormData)
+    return Axios.patch(url, data, config);
+  };

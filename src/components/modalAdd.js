@@ -1,38 +1,37 @@
 import React from "react";
 import Axios from "axios";
 import {connect} from 'react-redux';
-import {insertMenuCreator} from '../redux/actions/menuAndCart';
+import {insertMenuCreator, getMenuCreator} from '../redux/actions/menuAndCart';
 
 class ModalAdd extends React.Component {
 
   state = {
       name: '',
-      picture: null,
+      image: null,
       price: null,
-      id_category: null,
+      id_category: 1,
   };
 
 
   handleSubmit = () => {
     let formData = new FormData();
     formData.append("name", this.state.name);
-    formData.append("picture", this.state.picture);
+    formData.append("image", this.state.image);
     formData.append("price", this.state.price);
     formData.append("id_category", this.state.id_category);
 
     const config = {
       headers: {
           "content-type": "multipart/form-data",
-  
       }
   };
 
     const queryAdd = process.env.REACT_APP_INSERT_MENU;
 
-
     Axios.post(queryAdd, formData, config)
       .then((res) => {
         console.log(res);
+        this.props.getMenuCreator()
 
       }).catch((err) => {
         console.log(err);
@@ -70,7 +69,7 @@ class ModalAdd extends React.Component {
                   </div>
                   <div className="col-10">
                     <input className="form-control-file shadow" name="picture" type="file" id="image" autoComplete="off" onChange={(event) => this.setState({
-                      picture : event.target.files[0]
+                      image : event.target.files[0]
                     }) } />
                   </div>
                 </div>
@@ -92,7 +91,7 @@ class ModalAdd extends React.Component {
                     <select className="form-control shadow category" name="id_category" id="cat" autoComplete="off" onChange={(event) => this.setState({
                       id_category: event.target.value
                     })}>
-                      <option defaultValue="1">Appetizers</option>
+                      <option value="1">Appetizers</option>
                       <option value="2">Main Dish</option>
                       <option value="3">Dessert</option>
                       <option value="4">Beverages</option>
@@ -116,6 +115,9 @@ const mapDispatchToPRops = (dispatch) => {
   return {
     insertMenuCreator: (name, picture, price, id_category) => {
       dispatch(insertMenuCreator(name, picture, price, id_category));
+    },
+    getMenuCreator: () => {
+      dispatch(getMenuCreator())
     }
   };
 };
