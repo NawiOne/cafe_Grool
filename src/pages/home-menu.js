@@ -5,7 +5,7 @@ import {clearCreator} from '../redux/actions/menuAndCart'
 import Header from "../components/header";
 import LeftBar from "../components/leftBar";
 import FoodItem from "../components/food-items";
-import RightBar from "../components/RightBar";
+import RightBar from "../components/rightbar";
 import ModalAdd from "../components/modalAdd";
 import ModalCheckout from "../components/modalCheckout";
 import ModalSearch from "../components/modalSearch";
