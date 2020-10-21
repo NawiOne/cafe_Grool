@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getMenuCreator, editMenuCreator } from "../redux/actions/menuAndCart";
+import {editMenuCreator } from "../redux/actions/menuAndCart";
 
 const ModalEdit = () => {
     const {menuAndCart} = useSelector((state) => state)
