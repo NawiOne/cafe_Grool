@@ -15,7 +15,6 @@ const AppRouter = () => {
       <PrivateHome path="/" exact>
         <HomeMenu />
       </PrivateHome>
-      { /* <Route path="/" exact component={HomeMenu} />*/}
       <Privateroute path="/history" exact>
         <History />
       </Privateroute>

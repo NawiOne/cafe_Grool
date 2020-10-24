@@ -1,9 +1,9 @@
 import React from 'react';
 import {Link} from "react-router-dom";
 
-import regstyle from '../css/register.css';
+import '../css/register.css';
 import Axios from 'axios';
-
+import cashierImg from '../img/gallery.png'
 
 
 
@@ -15,12 +15,7 @@ class Register extends React.Component {
         },
         status: null
     };
-    clear = () => {
-        this.refs.blank.value = null;
-        this.refs.blank2.value = null;
 
-
-    };
     handleForm = (event) => {
         const newUser = {...this.state.user};
         newUser[event.target.name] = event.target.value;
@@ -41,7 +36,6 @@ class Register extends React.Component {
             }).catch((err) => {
                 console.log(err);
             });
-        this.clear();
     };
 
 
@@ -57,7 +51,7 @@ class Register extends React.Component {
                                     <div className="col-md-6 ilust">
                                         <h2>All the food you need is here</h2>
                                         <img className="img-fluid"
-                                            src="https://www.spotlightpos.com/assets/img/gallery-quickservice.png" alt="" />
+                                            src={cashierImg} alt="" />
                                     </div>
                                     <div className="col-md-6 register">
                                         <h2>Create new account</h2>
@@ -100,6 +94,5 @@ class Register extends React.Component {
     }
 
 };
-Register.bind(regstyle);
 
 export default Register;

@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { connect } from "react-redux";
+import { connect, useDispatch } from "react-redux";
 import jwt from "jsonwebtoken";
 import { logoutCreator } from "../redux/actions/auth";
-import { cancelCartCreator } from "../redux/actions/menuAndCart";
+import { cancelCartCreator, getMenuCreator } from "../redux/actions/menuAndCart";
 import { Popover, OverlayTrigger } from "react-bootstrap";
 
 const fork = require("../img/fork.png");
@@ -31,6 +31,8 @@ const popover = (
 );
 
 const LeftBar = (props) => {
+  const dispatch = useDispatch();
+
   const token = window.localStorage.getItem("token");
   const decode = jwt.decode(token);
   const level = decode.id_level;
@@ -39,7 +41,7 @@ const LeftBar = (props) => {
     <>
       <div className={props.animate.leftBarDisplay ? "left hide" : "left"}>
         <ul className='nav flex-column'>
-          <li className='nav-item'>
+          <li className='nav-item' onClick={() => dispatch(getMenuCreator())}>
               <button className='nav-link active'>
                 <img alt='fork' src={fork} />
               </button>

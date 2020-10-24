@@ -11,14 +11,18 @@ import ModalCheckout from "../components/modalCheckout";
 import ModalSearch from "../components/modalSearch";
 import ModalSelect from '../components/modalAdmin';
 import ModalEdit from '../components/modalEdit';
+import Confirm from '../components/logoutConfirm';
 
 
 const Home = () => {
     const token = window.localStorage.getItem('token');
     console.log(token)
     const [show, setShow] = useState(false)
+    const [showSearch, setShowSearch] = useState(false)
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+    const handleHideSearch = () => setShowSearch(false);
+    const handleSowSearch = () => setShowSearch(true);
     const dispatch = useDispatch()
 
     useEffect(() => {
@@ -31,7 +35,7 @@ const Home = () => {
                 <div className="row">
                     <div className="col-md-8 col-12">
                         <div className="row">
-                            <Header/>
+                            <Header handleShow={handleSowSearch} />
                         </div>
                         <div className="row">
                             <div className="main">
@@ -39,7 +43,7 @@ const Home = () => {
                                 <FoodItem handleShow={handleShow}/>
                                 <ModalAdd />
                                 <ModalCheckout/>
-                                <ModalSearch/>
+                                <ModalSearch show={showSearch} handleClose={handleHideSearch} />
                                 <ModalSelect show={show} handleClose={handleClose}/>
                                 <ModalEdit />
                             </div>

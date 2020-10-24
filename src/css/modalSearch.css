@@ -1,0 +1,20 @@
+.form-search{
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+    align-items: center;
+    border: 1px solid #A4A4A4;
+    border-radius: 10px;
+   margin: 0 auto;
+   margin-bottom: 5vh;
+}
+.input-search{
+    width: 80%;
+    outline: none;
+    border: none;
+}
+.search-logo{
+    width: 20px;
+    height: 20px;
+}
