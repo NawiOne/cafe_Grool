@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { connect, useDispatch } from "react-redux";
-import jwt from "jsonwebtoken";
+import { connect, useDispatch, useSelector } from "react-redux";
 import { logoutCreator } from "../redux/actions/auth";
 import { cancelCartCreator, getMenuCreator } from "../redux/actions/menuAndCart";
 import { Popover, OverlayTrigger } from "react-bootstrap";
@@ -31,11 +30,8 @@ const popover = (
 );
 
 const LeftBar = (props) => {
+  const {auth} = useSelector((state) => state)
   const dispatch = useDispatch();
-
-  const token = window.localStorage.getItem("token");
-  const decode = jwt.decode(token);
-  const level = decode.id_level;
 
   return (
     <>
@@ -47,7 +43,7 @@ const LeftBar = (props) => {
               </button>
           </li>
 
-          {level !== null && level === 1 ? (
+          {auth.user.id_level === 1? (
             <li className='nav-item'>
               <Link to='/history'>
                 <button className='nav-link'>
@@ -67,7 +63,7 @@ const LeftBar = (props) => {
 
           <li
             className={
-              level !== null && level === 1
+              auth.user.id_level  === 1
                 ? "nav-item add"
                 : "nav-item add hide"
             }

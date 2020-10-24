@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import jwt from "jsonwebtoken";
 import loading from '../img/spinner.svg'
 
 import {
@@ -8,18 +7,14 @@ import {
   addCartCreator,
   getMoreMenuCreator,
   addMenuEditCreator,
-  clearCreator,
 } from "../redux/actions/menuAndCart";
 
 const Thick = require("../img/thick-figma.png");
 
 const FoodItem = ({ handleShow }) => {
-  const { menuAndCart } = useSelector((state) => state);
+  const { menuAndCart, auth } = useSelector((state) => state);
   const dispatch = useDispatch();
 
-  const token = window.localStorage.getItem("token");
-  const decode = jwt.decode(token);
-  const level = decode.id_level;
 
   const [page, setPage] = useState(2);
 
@@ -30,7 +25,7 @@ const FoodItem = ({ handleShow }) => {
   useEffect(() => {
     if (menuAndCart.status.affectedRows !== 0) {
       dispatch(getMenuCreator());
-      //   dispatch(clearCreator())
+
     }
   }, [menuAndCart.status]);
 
@@ -66,7 +61,7 @@ const FoodItem = ({ handleShow }) => {
                           className='img-card'
                           alt=' food'
                           onClick={() => {
-                            if (level !== null && level === 1) {
+                            if (auth.user.id_level === 1) {
                               handleShow();
                               dispatch(
                                 addMenuEditCreator(

@@ -1,6 +1,7 @@
 import React from "react";
 import {Route, Redirect} from "react-router-dom";
 import jwt from 'jsonwebtoken';
+import {useSelector} from 'react-redux';
 
 
 const authCheck = () => {
@@ -22,11 +23,12 @@ const authCheck = () => {
 
 
 const PrivateRoute = ({children, ...rest}) => {
+  const {auth} = useSelector(state => state)
   return (
     <Route
       {...rest}
       render={({location}) => {
-        return authCheck() ? (
+        return auth.isLogin === true ? (
           children
         ) : (
             <Redirect

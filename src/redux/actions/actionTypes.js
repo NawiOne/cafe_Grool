@@ -20,6 +20,9 @@ export const clickLeftBarAction = "CLICK_LEFT_BAR";
 export const clickRightBarAction = "CLICK_RIGHT_BAR";
 
 export const logoutAction = "LOGOUT";
+export const loginAction = 'LOGIN';
+export const registerAction = 'REGISTER';
+export const clearStatusAction = 'CLEAR_STATUS';
 
 
 export const pending = "_PENDING";

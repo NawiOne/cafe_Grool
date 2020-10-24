@@ -97,10 +97,10 @@ export const addTransactionCreator = (invoice, cashier, orders, amount) => {
   };
 };
 
-export const getHistoryCreator = () => {
+export const getHistoryCreator = (token) => {
   return {
     type: getHistoryAction,
-    payload: getHistory(),
+    payload: getHistory(token),
   };
 };
 

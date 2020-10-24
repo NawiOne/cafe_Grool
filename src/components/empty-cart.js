@@ -1,18 +1,17 @@
 import React from "react";
-import jwt from "jsonwebtoken";
+import { useSelector} from 'react-redux';
 import "../css/cart.css";
 import cart from "../img/chart.png";
 import chasier from '../img/gallery.png'
 
 
 const EmptyCart = () => {
-  const token = window.localStorage.getItem("token");
-  const decode = jwt.decode(token);
-  const level = decode.id_level;
+  const {auth} = useSelector((state) => state)
+
 
   return (
     <>
-      {level === 2 ? (
+      {auth.user.id_level === 2 ? (
         <div className='empty-cart'>
           <img alt='cart' className='img-fluid' src={cart} />
           <h3>Your cart is empty</h3>

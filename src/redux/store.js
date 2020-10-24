@@ -9,7 +9,7 @@ import indexReducer from './reducers';
 const persistConfig = {
     key: 'root',
     storage,
-    whitelist: ['menuAndCart']
+    whitelist: ['menuAndCart', 'auth']
 }
 
 const persistedReducer = persistReducer(persistConfig, indexReducer)
