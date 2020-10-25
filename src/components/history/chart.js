@@ -26,10 +26,6 @@ class App extends React.Component {
 			toolTip: {
 				shared: true
 			},
-			// legend: {
-			// 	cursor: "pointer",
-			// 	itemclick: this.toggleDataSeries
-			// },
 			data: [{
 				type: "spline",
 				name: "This week",

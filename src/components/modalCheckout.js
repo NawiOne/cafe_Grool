@@ -12,11 +12,6 @@ const ModalCheckout = (props) => {
   const getMil = new Date().getMilliseconds().toString();
   const invoice = getDate + getMil;
 
-  // const token = window.localStorage.getItem('token');
-  // const decode = jwt.decode(token);
-  // const user = decode.username
-  // console.log(decode)
-
   const cart = props.menuAndCart.cart.map((cart) => {
     return cart.name;
   });
