@@ -4,7 +4,6 @@ import "../css/cart.css";
 import cart from "../img/chart.png";
 import chasier from '../img/gallery.png'
 
-
 const EmptyCart = () => {
   const {auth} = useSelector((state) => state)
 
@@ -18,7 +17,7 @@ const EmptyCart = () => {
           <p className='text-muted'>Please add some items from the menu</p>
         </div>
       ) : (
-        <div className='empty-cart'>
+        <div className='empty-cart' >
           <img src={chasier} alt='' style={{
               width: '80%',
               height: '40vh'

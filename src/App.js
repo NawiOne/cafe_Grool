@@ -7,6 +7,7 @@ import History from "./pages/history";
 import Register from "./pages/register";
 import Privateroute from "./components/privateRoute";
 import PrivateHome from "./components/privateHome";
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const AppRouter = () => {

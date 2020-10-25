@@ -8,12 +8,12 @@ const ModalEdit = () => {
     const [image, setImage] = useState(null)
     const [price, setPrice] = useState(null)
     const [id_cat, setId_cat] = useState(null)
+    console.log(menuAndCart.dataEdit)
 
     const dispatch = useDispatch()
 
     const handleSubmit = () => {
-        dispatch(editMenuCreator(name, image, price, price, menuAndCart.dataEdit.id_menu))
-        console.log(name, image, price, id_cat, menuAndCart.dataEdit.id_menu)
+        dispatch(editMenuCreator(name, image, price, id_cat, menuAndCart.dataEdit.id_menu))
     }
  
   return (

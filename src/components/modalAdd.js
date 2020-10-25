@@ -2,18 +2,27 @@ import React from "react";
 import Axios from "axios";
 import {connect} from 'react-redux';
 import {insertMenuCreator, getMenuCreator} from '../redux/actions/menuAndCart';
+import {toast, Bounce} from 'react-toastify'
 
 class ModalAdd extends React.Component {
 
   state = {
       name: '',
-      image: null,
-      price: null,
+      image: '',
+      price: '',
       id_category: 1,
   };
-
+clearField = () => {
+  this.setState({
+    name: '',
+    image: '',
+    price: '',
+    id_category: 1,
+  })
+}
 
   handleSubmit = () => {
+    this.clearField()
     let formData = new FormData();
     formData.append("name", this.state.name);
     formData.append("image", this.state.image);
@@ -29,20 +38,35 @@ class ModalAdd extends React.Component {
     const queryAdd = process.env.REACT_APP_INSERT_MENU;
 
     Axios.post(queryAdd, formData, config)
-      .then((res) => {
-        console.log(res);
+    .then(res=>{
+      if(res.data.isSuccess){
         this.props.getMenuCreator()
-
-      }).catch((err) => {
-        console.log(err);
-      });
+        toast('Add menu success!',{
+          draggable:true,
+          autoClose:false,
+          transition:Bounce,
+        })
+      }
+      else{
+        toast('Add menu failed. please try again!',{
+          draggable:true,
+          autoClose:false,
+          transition:Bounce,
+        })
+      }
+    })
+    .catch(err=>{
+      toast.error('Network Error',{
+        draggable:true,
+        autoClose:false,
+      })
+    })
   };
 
 
   render() {
     return (
       <>
-      {console.log(this.state.picture)}
         <div className="modal add fade" id="modal-add" tabIndex="-1" aria-labelledby="modal-add" aria-hidden="true">
           <div className="modal-dialog modal-dialog-centered">
             <div className="modal-content">
@@ -58,7 +82,9 @@ class ModalAdd extends React.Component {
                     <label htmlFor="name">Name</label>
                   </div>
                   <div className="col-10">
-                    <input className="form-control shadow" name="name" type="text" id="name" autoComplete="off" onChange={(event) => this.setState({
+                    <input className="form-control shadow" name="name" type="text" id="name" autoComplete="off" 
+                    value={this.state.name}
+                    onChange={(event) => this.setState({
                       name: event.target.value
                     })} />
                   </div>
@@ -68,7 +94,8 @@ class ModalAdd extends React.Component {
                     <label htmlFor="image">Image</label>
                   </div>
                   <div className="col-10">
-                    <input className="form-control-file shadow" name="picture" type="file" id="image" autoComplete="off" onChange={(event) => this.setState({
+                    <input className="form-control-file shadow" name="picture" type="file" id="image"
+                     autoComplete="off" onChange={(event) => this.setState({
                       image : event.target.files[0]
                     }) } />
                   </div>
@@ -78,7 +105,7 @@ class ModalAdd extends React.Component {
                     <label htmlFor="price">Price</label>
                   </div>
                   <div className="col-10">
-                    <input className="form-control shadow price" name="price" type="number" id="price" autoComplete="off" onChange={(event) => this.setState({
+                    <input className="form-control shadow price" name="price" type="number" id="price" value={this.state.price} autoComplete="off" onChange={(event) => this.setState({
                       price: event.target.value
                     })} />
                   </div>
@@ -88,7 +115,7 @@ class ModalAdd extends React.Component {
                     <label htmlFor="cat">Category</label>
                   </div>
                   <div className="col-10">
-                    <select className="form-control shadow category" name="id_category" id="cat" autoComplete="off" onChange={(event) => this.setState({
+                    <select className="form-control shadow category" name="id_category" id="cat" autoComplete="off" value={this.state.id_category}onChange={(event) => this.setState({
                       id_category: event.target.value
                     })}>
                       <option value="1">Appetizers</option>

@@ -175,12 +175,12 @@ const menuAndCart = (prevState = initalstate, { type, payload }) => {
     case addTransAction + pending:
       return {
         ...prevState,
-        isPending: true,
+        isPending: false,
       };
     case addTransAction + rejected:
       return {
         ...prevState,
-        isRejected: true,
+        isRejected: false,
         error: payload,
         isPending: false,
       };

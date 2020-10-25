@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import loading from '../img/spinner.svg'
 
+
 import {
   getMenuCreator,
   addCartCreator,
@@ -23,11 +24,11 @@ const FoodItem = ({ handleShow }) => {
   }, []);
 
   useEffect(() => {
-    if (menuAndCart.status.affectedRows !== 0) {
+    if (menuAndCart.status.isSuccess) {
       dispatch(getMenuCreator());
 
     }
-  }, [menuAndCart.status]);
+  }, [menuAndCart.status, dispatch]);
 
   const fetchMore = () => {
     console.log("yaaa lagi");

@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from "react";
 import {useDispatch,} from 'react-redux';
 import {clearCreator} from '../redux/actions/menuAndCart'
+import {ToastContainer} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 // required Component
 import Header from "../components/header";
 import LeftBar from "../components/leftBar";
@@ -11,7 +13,6 @@ import ModalCheckout from "../components/modalCheckout";
 import ModalSearch from "../components/modalSearch";
 import ModalSelect from '../components/modalAdmin';
 import ModalEdit from '../components/modalEdit';
-import Confirm from '../components/logoutConfirm';
 
 
 const Home = () => {
@@ -32,6 +33,7 @@ const Home = () => {
 
         return (
             <>
+                <ToastContainer />
                 <div className="row">
                     <div className="col-md-8 col-12">
                         <div className="row">

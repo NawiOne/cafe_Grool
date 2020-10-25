@@ -1,4 +1,6 @@
 import Axios from "axios";
+import {toast, Bounce} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export const getMenu = () => {
   return Axios.get(process.env.REACT_APP_GET_MENU);
@@ -24,7 +26,30 @@ export const insertMenu = (name, picture, price, id_category) => {
       "x-access-token": "bearer " + localStorage.getItem("token"),
       "Content-type": "form",
     },
-  });
+  })
+  .then(res=>{
+    if(res.data.isSuccess){
+      console.log(res.data.isSuccess)
+      toast('Add menu success!',{
+        draggable:true,
+        autoClose:false,
+        transition:Bounce,
+      })
+    }
+    else{
+      toast('Add menu failed. please try again!',{
+        draggable:true,
+        autoClose:false,
+        transition:Bounce,
+      })
+    }
+  })
+  .catch(err=>{
+    toast.error('Network Error',{
+      draggable:true,
+      autoClose:false,
+    })
+  })
 };
 
 export const addTrans = (invoice, cashier, orders, amount) => {
@@ -37,7 +62,31 @@ export const addTrans = (invoice, cashier, orders, amount) => {
   const url = process.env.REACT_APP_INSERT_TRANS;
   return Axios.post(url, data, {
     headers: { "x-access-token": "bearer " + localStorage.getItem("token") },
-  });
+  })
+  .then(res=>{
+    if(res.data.isSuccess){
+      console.log(res.data.isSuccess)
+      toast('Order Success!',{
+        draggable:true,
+        autoClose:false,
+        transition:Bounce,
+      })
+    }
+    else{
+      toast('Order failed. please try again!',{
+        draggable:true,
+        autoClose:false,
+        transition:Bounce,
+      })
+    }
+  })
+  .catch(err=>{
+    toast.error('Network Error',{
+      draggable:true,
+      autoClose:false,
+    })
+  })
+   
 };
 
 export const getHistory = (token) => {
@@ -75,7 +124,7 @@ export const editMenu = (name, image, price, id_category, id_menu) => {
   };
   const url = "http://54.198.163.118:8000/update";
   console.log(FormData);
-  return Axios.patch(url, data, config);
+  return Axios.patch(url, data, config)
 };
 
 export const login = (username, password) => {
