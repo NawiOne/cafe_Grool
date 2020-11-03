@@ -54,7 +54,7 @@ export const insertMenuCreator = (name, picture, price, id_category) => {
   };
 };
 
-export const addCartCreator = (id, name, price, img) => {
+export const addCartCreator = (id, name, price, img, checked) => {
   return {
     type: addCartAction,
     payload: {
@@ -63,6 +63,7 @@ export const addCartCreator = (id, name, price, img) => {
       quantity: 1,
       price: price,
       picture: img,
+      checked,
     },
   };
 };

@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useRef } from "react";
 import { connect, useSelector } from "react-redux";
 import {
   addTransactionCreator,
   cancelCartCreator,
 } from "../redux/actions/menuAndCart";
+import { useReactToPrint } from "react-to-print";
+import ComponentToPrint from "../components/toPrint";
 
 const ModalCheckout = (props) => {
+  const ref = useRef();
+
   const { auth } = useSelector((state) => state);
 
   const getDate = new Date().getDate().toString();
@@ -25,6 +29,67 @@ const ModalCheckout = (props) => {
   const ppn = total * (10 / 100);
   const totalPpn = total + ppn;
 
+  const handlePrint = useReactToPrint({
+    content: () => ref.current,
+  });
+
+  class Content extends React.Component {
+    render() {
+      return (
+        <div className='modal-body'>
+          <div className='row ml-1 mr-1'>
+            <div className='col-6 d-flex justify-content-start flex-column'>
+              <h4>Checkout </h4>
+              <p className='font-weight-normal'>
+                Chasier: {auth.user.username}
+              </p>
+            </div>
+            <div className='col-6 d-flex justify-content-end'>
+              <h5>Receipt no: #{invoice}</h5>
+            </div>
+          </div>
+          <div className='row ml-1 mr-1'></div>
+          {props.menuAndCart.cart.map((cart, index) => {
+            return (
+              <>
+                <div className='row ml-1 mr-1' key={index}>
+                  <div className='col-6 d-flex justify-content-start'>
+                    <p>
+                      {cart.name} {cart.quantity}x
+                    </p>
+                  </div>
+                  <div className='col-6 d-flex justify-content-end'>
+                    <p>Rp. {cart.price * cart.quantity}</p>
+                  </div>
+                </div>
+              </>
+            );
+          })}
+          <div className='row ml-1 mr-1'>
+            <div className='col-6 d-flex justify-content-start'>
+              <p>Ppn 10%</p>
+            </div>
+            <div className='col-6 d-flex justify-content-end'>
+              <p>Rp. {ppn}</p>
+            </div>
+          </div>
+          <div className='row ml-1 mr-1'>
+            <div className='col-4 d-flex justify-content-start'></div>
+            <div className='col-8 d-flex justify-content-end'>
+              <p>Total: Rp. {totalPpn}</p>
+            </div>
+          </div>
+          <div className='row ml-1 mr-1'>
+            <div className='col-6 d-flex justify-content-start'>
+              Payment: Cash
+            </div>
+            <div className='col-6 '></div>
+          </div>
+        </div>
+      );
+    }
+  }
+
   return (
     <>
       <div
@@ -37,70 +102,13 @@ const ModalCheckout = (props) => {
       >
         <div className='modal-dialog modal-dialog-centered modal-dialog-scrollable'>
           <div className='modal-content'>
-            <div className='modal-body'>
-              <div className='row ml-1 mr-1'>
-                <div className='col-6 d-flex justify-content-start flex-column'>
-                  <h4>Checkout </h4>
-                  <p className='font-weight-normal'>
-                    Chasier: {auth.user.username}
-                  </p>
-                </div>
-                <div className='col-6 d-flex justify-content-end'>
-                  <h5>Receipt no: #{invoice}</h5>
-                </div>
-              </div>
-              <div className='row ml-1 mr-1'></div>
-              {props.menuAndCart.cart.map((cart, index) => {
-                return (
-                  <>
-                    <div className='row ml-1 mr-1' key={index}>
-                      <div className='col-6 d-flex justify-content-start'>
-                        <p>
-                          {cart.name} {cart.quantity}x
-                        </p>
-                      </div>
-                      <div className='col-6 d-flex justify-content-end'>
-                        <p>Rp. {cart.price * cart.quantity}</p>
-                      </div>
-                    </div>
-                  </>
-                );
-              })}
-              <div className='row ml-1 mr-1'>
-                <div className='col-6 d-flex justify-content-start'>
-                  <p>Ppn 10%</p>
-                </div>
-                <div className='col-6 d-flex justify-content-end'>
-                  <p>Rp. {ppn}</p>
-                </div>
-              </div>
-              <div className='row ml-1 mr-1'>
-                <div className='col-4 d-flex justify-content-start'></div>
-                <div className='col-8 d-flex justify-content-end'>
-                  <p>Total: Rp. {totalPpn}</p>
-                </div>
-              </div>
-              <div className='row ml-1 mr-1'>
-                <div className='col-6 d-flex justify-content-start'>
-                  Payment: Cash
-                </div>
-                <div className='col-6 '></div>
-              </div>
-            </div>
+            <Content ref={ref} />
             <div className='modal-footer '>
               <button
                 type='button'
                 className='btn btn-pink btn-lg btn-block '
                 data-dismiss='modal'
-                onClick={() => {
-                  props.addTransactionCreator(
-                    invoice,
-                    auth.user.username,
-                    cart.toString(),
-                    totalPpn,
-                  );
-                  props.cancelCartCreator();
-                }}
+                onClick={handlePrint}
               >
                 Print
               </button>
