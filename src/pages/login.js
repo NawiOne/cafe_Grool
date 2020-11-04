@@ -14,7 +14,6 @@ const Login = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("login...........");
     if (username !== "" && password !== "")
       dispatch(loginCreator(username, password));
   };

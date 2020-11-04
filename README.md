@@ -1,11 +1,17 @@
-![me](https://drive.google.com/file/d/1F8vBxkAB4uML7FDc62zDQZMbtbyYQk6G/view)
-Nawi Rudin
----
-# POS APP
+# Cafe Grool
 
-POS software is what brick and mortar retailers use to conduct sales. It's sometimes a cash register, computer, or even an iPad where cashiers input your products, tally the cost, and conduct the financial transaction. Most POS software will also communicate with inventory levels to keep everything in balance. A lot of big box stores have wildly expensive POS solutions, some of which were custom built for their needs. Smaller retailers are moving away from these traditional POS systems and toward cloud based point of sale solutions. 
+Cafe Grool adalah sebuah aplikasi kasir untuk membantu para kasir dalam melayani pesanan makanan pelanggan restaurant atau lainnya.
+Aplikasi ini dilengkapi dengan akses admin untuk menambah, mengubah, dan menghapus menu makanan.
 
-**Built with:**
+![home](/src/asset/posapp/home.png)
+
+![home](/src/asset/posapp/add-menu.png)
+
+![home](/src/asset/posapp/checkout.png)
+
+![home](/src/asset/posapp/login.png)
+
+**Dibangun menggunakan:**
 * [React js](https://reactjs.org/)
 * [Node js](https://nodejs.org/en/)
 * [Express js](https://expressjs.com/)
@@ -13,4 +19,6 @@ POS software is what brick and mortar retailers use to conduct sales. It's somet
 * [MySQL](https://www.mysql.com/)
 * [Bootstrap](https://getbootstrap.com/)
 * [Canvas jS](https://canvasjs.com/)
+
+## Demo link [Cafe Grool](http://54.197.88.112:8081/)
   
