@@ -1,6 +1,6 @@
 # Cafe Grool
 
-Cafe Grool adalah sebuah aplikasi kasir untuk membantu para kasir dalam melayani pesanan makanan pelanggan restaurant atau lainnya.
+Cafe Grool adalah sebuah aplikasi kasir untuk membantu para kasir dalam melayani pesanan pelanggan restaurant atau lainnya.
 Aplikasi ini dilengkapi dengan akses admin untuk menambah, mengubah, dan menghapus menu makanan.
 
 ![home](/src/asset/posapp/home.png)
