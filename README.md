@@ -43,10 +43,10 @@ This application is equipped with admin access to add, modify, and delete food m
 
 ## Screenshots
 <div align="center">
-    <img width="350" src="./src/asset/posapp/home.png"> 
-    <img width="350" src="./src/asset/posapp/checkout.png">
-    <img width="350" src="./src/asset/posapp/add-menu.png">
-    <img width="350" src="./src/asset/posapp/history.png">
+    <img width="400" src="./src/asset/posapp/home.png"> 
+    <img width="400" src="./src/asset/posapp/checkout.png">
+    <img width="400" src="./src/asset/posapp/add-menu.png">
+    <img width="400" src="./src/asset/posapp/history.png">
 </div>
 
 
