@@ -43,9 +43,9 @@ This application is equipped with admin access to add, modify, and delete food m
 
 ## Screenshots
 <div align="center">
-    <img width="250" src="./src/assets/home.png"> 
-    <img width="250" src="./src/assets/checkout.png">
-    <img width="250" src="./src/assets/history.png">
+    <img width="250" src="./src/asset/home.png"> 
+    <img width="250" src="./src/asset/checkout.png">
+    <img width="250" src="./src/asset/history.png">
 </div>
 
 
@@ -58,7 +58,7 @@ This application is equipped with admin access to add, modify, and delete food m
     <tr>
       <td align="center">
         <a href="https://github.com/NawiOne">
-          <img width="100" src="./src/assets/saya.jpg"><br/>
+          <img width="100" src="./src/asset/saya.jpg"><br/>
           <sub><b>Nawirudin</b></sub>
         </a>
       </td>
