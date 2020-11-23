@@ -40,6 +40,9 @@ This application is equipped with admin access to add, modify, and delete food m
 2. Type `https://github.com/NawiOne/cafe_Grool.git`
 3. Open the folder and type `npm install` for install dependencies
 4. Type `npm start` for run this app.
+5. admin acess: 
+   - username: nawijingga
+   - password: nawijingga123
 
 ## Screenshots
 <div align="center">
